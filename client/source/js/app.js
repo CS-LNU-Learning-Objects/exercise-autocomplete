@@ -1,4 +1,4 @@
-import './team-selector'
+import './team-selector.js'
 
 const selector = document.querySelector('#teams')
 const template = document.querySelector('#teamCardTemplate')

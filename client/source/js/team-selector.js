@@ -1,5 +1,5 @@
 const template = document.createElement('template')
-template.innerHTML = `
+template.innerHTML = /* html */`
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
 <div class="input-field col s6">
@@ -15,11 +15,11 @@ template.innerHTML = `
  * @class TeamSelector
  * @extends {window.HTMLElement}
  */
-class TeamSelector extends window.HTMLElement {
+export class TeamSelector extends window.HTMLElement {
   constructor () {
     super()
 
-    this.attachShadow({mode: 'open'})
+    this.attachShadow({ mode: 'open' })
     this.shadowRoot.appendChild(template.content.cloneNode(true))
     this._input = this.shadowRoot.querySelector('input')
     this._datalist = this.shadowRoot.querySelector('datalist')
@@ -52,7 +52,7 @@ class TeamSelector extends window.HTMLElement {
 
       let hit = this.teams.filter(team => team.name === this._input.value)
       if (hit.length > 0) {
-          // Team selected
+        // Team selected
         let detail = {
           newTeam: await this.getTeam(hit[0].id),
           oldTeam: this._selectedTeam
@@ -76,12 +76,12 @@ class TeamSelector extends window.HTMLElement {
     let oldTeams = this.teams.slice()
     this.teams = []
 
-      // Search for teams
+    // Search for teams
     let searchResult = await window.fetch(`${this._apiURL}/teams/?q=${str}`)
     searchResult = await searchResult.json()
     this.teams = searchResult.teams
 
-    this.dispatchEvent(new window.CustomEvent('teamsupdate', {detail: {oldTeams, newTeams: this.teams}}))
+    this.dispatchEvent(new window.CustomEvent('teamsupdate', { detail: { oldTeams, newTeams: this.teams } }))
   }
 
   _updateRendering () {
