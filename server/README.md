@@ -8,18 +8,18 @@ You can retrieve all the teams.
 
 Example of a request:
 
-```
+```http
 GET api/teams HTTP/1.1
 Accept: application/json
 ```
 
-```
-$ curl 'http://localhost:3000/api/teams' -i -H 'Accept: application/json'
+```bash
+curl 'http://localhost:3000/api/teams' -i -H 'Accept: application/json'
 ```
 
 Example of success response:
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
@@ -60,18 +60,18 @@ You can filter the list of teams to contain only those teams which names contain
 
 Example of a request:
 
-```
+```http
 GET api/teams?q=ci HTTP/1.1
 Accept: application/json
 ```
 
-```
-$ curl 'http://localhost:3000/api/teams?q=ci' -i -H 'Accept: application/json'
+```bash
+curl 'http://localhost:3000/api/teams?q=ci' -i -H 'Accept: application/json'
 ```
 
 Example of success response:
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
@@ -112,18 +112,18 @@ To retrieve a team, you need to know its id, which should be provided as a part 
 
 Example of a request:
 
-```
+```http
 GET api/teams/42 HTTP/1.1
 Accept: application/json
 ```
 
-```
-$ curl 'http://localhost:3000/api/teams/42' -i -H 'Accept: application/json'
+```bash
+curl 'http://localhost:3000/api/teams/42' -i -H 'Accept: application/json'
 ```
 
 Example of success response:
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
@@ -132,7 +132,7 @@ Content-Type: application/json; charset=utf-8
   "name":"Stoke City",
   "nickname":"Potters",
   "url":"http://www.stokecityfc.com"
-} 
+}
 ```
 
 | Path     | Type   | Description             |

@@ -2,12 +2,13 @@
  * The starting point of the application.
  *
  * @author Mats Loock
- * @version 1.0.0
+ * @version 1.2.0
  */
 
 'use strict'
 
 const express = require('express')
+const logger = require('morgan')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -19,6 +20,9 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Methods', 'POST, GET')
   next()
 })
+
+// Additional middleware.
+app.use(logger('dev'))
 
 // Register routes. All of the routes will be prefixed with /api.
 const router = express.Router()

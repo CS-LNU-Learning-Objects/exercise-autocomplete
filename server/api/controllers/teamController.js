@@ -2,7 +2,7 @@
  * Module for the team controller.
  *
  * @author Mats Loock
- * @version 1.0.0
+ * @version 1.2.0
  */
 
 'use strict'
@@ -20,15 +20,13 @@ const teams = Object.freeze(require('./teams.json').sort((a, b) => a.name.locale
  * @param {Object} res Node.js response object
  */
 module.exports.list = (req, res) => {
-  console.log('\n', req.originalUrl)
-
   // If a query is present filter the teams.
   let result = teams
   if (req.query.q) {
     const regexp = new RegExp(req.query.q, 'i')
     result = result.filter(team => regexp.test(team.name))
   }
-  result = result.map(team => { return {id: team.id, name: team.name} })
+  result = result.map(team => { return { id: team.id, name: team.name } })
 
   // Send json response with teams - if any.
   console.log(`Found ${result.length} team${result.length !== 1 ? 's' : ''}.`)
@@ -46,9 +44,7 @@ module.exports.list = (req, res) => {
  * @param {Object} res Node.js response object
  */
 module.exports.get = (req, res) => {
-  console.log('\n', req.originalUrl)
-
-  let id = Number(req.params.id)
+  const id = Number(req.params.id)
 
   // If the parameter id isn't an integer greater than 0 send a 400 (bad request).
   if (!id || Number.isNaN(id) || !Number.isInteger(id) || id <= 0) {
@@ -59,7 +55,7 @@ module.exports.get = (req, res) => {
   }
 
   // Get the first team that's id equals the parameter id.
-  let team = teams.filter(team => team.id === id).shift()
+  const team = teams.filter(team => team.id === id).shift()
 
   // If no team is found send a 404 (resource not found).
   if (!team) {

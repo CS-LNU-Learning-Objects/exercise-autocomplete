@@ -1,26 +1,12 @@
 {
   "name": "@CS-LNU-Learning-Objects/exercise-autocomplete",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "https://coursepress.lnu.se/kurs/klientbaserad-webbprogrammering/",
   "contributors": [
-    {
-      "name": "Johan Leitet",
-      "email": "johan.leitet@lnu.se"
-    },
-    {
-      "name": "John Häggerud",
-      "email": "john.haggerud@lnu.se"
-    },
-    {
-      "name": "Mats Loock",
-      "email": "mats.loock@lnu.se"
-    },
-    {
-      "name": "Jacob Lindehoff",
-      "email": "jacob.lindehoff@lnu.se"
-    }
+    "Johan Leitet <johan.leitet@lnu.se>",
+    "Mats Loock <mats.loock@lnu.se>"
   ],
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/CS-LNU-Learning-Objects/exercise-autocomplete"
@@ -29,30 +15,35 @@
     "node": ">=7.0.0"
   },
   "dependencies": {
-    "body-parser": "^1.14.1",
-    "express": "^4.13.3"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
-    "css-loader": "^1.0.0",
-    "file-loader": "^2.0.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
+    "css-loader": "*",
+    "file-loader": "*",
+    "html-loader": "*",
+    "html-webpack-plugin": "*",
     "standard": "*",
-    "standard-loader": "^6.0.1",
-    "style-loader": "^0.23.0",
-    "webpack": "^4.19.1",
-    "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.8.1"
+    "standard-loader": "*",
+    "style-loader": "*",
+    "webpack": "*",
+    "webpack-cli": "*",
+    "webpack-dev-server": "*"
   },
   "bin": {},
   "scripts": {
     "debug": "webpack-dev-server",
     "start": "webpack-dev-server",
-    "server": "node ./server/app.js"
+    "server": "node ./server/app.js",
+    "lint": "standard || exit 0",
+    "lint:fix": "standard --fix || exit 0"
   },
   "standard": {
     "env": {
-      "browser": true
+      "browser": true,
+      "es6": true,
+      "node": true
     }
   }
 }

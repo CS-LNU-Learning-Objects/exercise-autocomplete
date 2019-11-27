@@ -2,7 +2,7 @@
  * Module for the team routes.
  *
  * @author Mats Loock
- * @version 1.0.0
+ * @version 1.2.0
  */
 
 'use strict'
@@ -12,9 +12,9 @@ const express = require('express')
 const router = express.Router()
 
 // /teams?q=
-router.get('/', (req, res) => teamController.list(req, res))
+router.get('/', teamController.list)
 
 // /teams/:id
-router.get('/:id', (req, res) => teamController.get(req, res))
+router.get('/:id', teamController.get)
 
 module.exports = router
